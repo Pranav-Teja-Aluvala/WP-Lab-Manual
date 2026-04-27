@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Node.js & NPM</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px 80px;
+            cursor: crosshair;
+            background-color: #F5F5F5;
+        }
+
+        .content {
+            position: relative;
+            z-index: 1;
+            background-color: rgba(255,255,255,0.95);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .line {
+            height: 8px;
+            background-color: #3498DB;
+            border: none;
+            margin: 20px 0;
+        }
+
+        .header {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2C3E50;
+            text-align: center;
+        }
+
+        a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 5px 10px;
+            background: linear-gradient(45deg, #3498DB, #2980B9);
+            border-radius: 5px;
+            transition: all 0.3s;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        a:hover {
+            background: linear-gradient(45deg, #E74C3C, #C0392B);
+            transform: scale(1.05);
+        }
+
+        .section-title {
+            background-color: #F39C12;
+            color: black;
+            font-weight: bold;
+            padding: 12px;
+            margin: 20px 0 10px 0;
+            border-radius: 5px;
+        }
+
+        .content-list {
+            margin-left: 30px;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th {
+            background-color: #27AE60;
+            color: white;
+            padding: 12px;
+        }
+
+        td {
+            padding: 10px;
+            border: 1px solid #BDC3C7;
+            background-color: #ECF0F1;
+        }
+
+        tr:nth-child(even) td {
+            background-color: #D5DBDB;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <hr class="line">
+        <div class="header">Node.js & NPM Demo</div>
+        <hr class="line">
+
+        <div class="section-title">OFFICIAL SITES:</div>
+        <div class="content-list">
+            <p>
+                Visit:
+                <a href="https://nodejs.org" target="_blank">Node.js</a> |
+                <a href="https://www.npmjs.com" target="_blank">NPM</a>
+            </p>
+        </div>
+
+        <div class="section-title">POPULAR PACKAGES:</div>
+        <table>
+            <tr>
+                <th>Package</th>
+                <th>Version</th>
+                <th>Install Command</th>
+            </tr>
+            <tr>
+                <td>express</td>
+                <td>4.18.2</td>
+                <td>npm i express</td>
+            </tr>
+            <tr>
+                <td>react</td>
+                <td>18.3.1</td>
+                <td>npm i react react-dom</td>
+            </tr>
+            <tr>
+                <td>lodash</td>
+                <td>4.17.21</td>
+                <td>npm i lodash</td>
+            </tr>
+        </table>
+
+        <div class="section-title">COMMANDS:</div>
+        <ul class="content-list">
+            <li>npm init - Initialize project</li>
+            <li>npm install - Install dependencies</li>
+            <li>npm start - Run start script</li>
+            <li>node app.js - Run Node.js file</li>
+        </ul>
+    </div>
+</body>
+</html>

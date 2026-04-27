@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traditional vs Arrow Function</title>
+</head>
+
+<body>
+    <h2>Traditional Function vs Arrow Function (this context)</h2>
+
+    <label>Enter Name:</label>
+    <input type="text" id="name"> <br><br>
+
+    <button onclick="compareFunctions()">Show Result</button>
+    <p id="output"></p>
+
+    <script>
+        function compareFunctions() {
+            let userName = document.getElementById("name").value;
+            const student = {
+                name: userName,
+                normalFunction: function () {
+                    return "Normal Function: " + this.name;
+                },
+                arrowFunction: () => {
+                    return "Arrow Function: " + this.name;
+                }
+            };
+
+            const normalResult = student.normalFunction();
+            const arrowResult = student.arrowFunction();
+
+            document.getElementById("output").innerHTML =
+                normalResult + "<br>" + arrowResult;
+        }
+    </script>
+</body>
+</html>

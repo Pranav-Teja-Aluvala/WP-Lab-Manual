@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dynamic Variable Declaration</title>
+
+  <style>
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f0f2f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background-color: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      width: 350px;
+    }
+
+    h2 {
+      color: #333;
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .input-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      font-size: 0.9rem;
+      color: #666;
+      margin-bottom: 5px;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      box-sizing: border-box;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .output-section {
+      margin-top: 20px;
+      padding-top: 15px;
+      border-top: 1px solid #eee;
+    }
+
+    .output-line {
+      font-family: 'Courier New', Courier, monospace;
+      background: #f8f9fa;
+      padding: 5px 10px;
+      margin: 5px 0;
+      border-radius: 4px;
+      font-size: 0.9rem;
+    }
+
+    .keyword {
+      color: #d73a49;
+      font-weight: bold;
+    }
+
+    .val {
+      color: #005cc5;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h2>JS Variables</h2>
+
+    <div class="input-group">
+      <label>Enter value for X (var):</label>
+      <input type="text" id="inputX" placeholder="e.g. 10" />
+    </div>
+
+    <div class="input-group">
+      <label>Enter value for Y (let):</label>
+      <input type="text" id="inputY" placeholder="e.g. 20" />
+    </div>
+
+    <div class="input-group">
+      <label>Enter value for Z (const):</label>
+      <input type="text" id="inputZ" placeholder="e.g. 30" />
+    </div>
+
+    <button onclick="updateVariables()">Process Data</button>
+
+    <div class="output-section" id="displayArea"></div>
+  </div>
+
+  <script>
+    function updateVariables() {
+      
+      const valX = document.getElementById('inputX').value;
+      const valY = document.getElementById('inputY').value;
+      const valZ = document.getElementById('inputZ').value;
+
+      var x = valX;
+      let y = valY;
+      const z = valZ;
+
+      const displayArea = document.getElementById('displayArea');
+      displayArea.innerHTML = `
+        <div class="output-line">
+          <span class="keyword">var</span> x =
+          <span class="val">${x}</span>
+        </div>
+        <div class="output-line">
+          <span class="keyword">let</span> y =
+          <span class="val">${y}</span>
+        </div>
+        <div class="output-line">
+          <span class="keyword">const</span> z =
+          <span class="val">${z}</span>
+        </div>
+      `;
+    }
+  </script>
+</body>
+</html>

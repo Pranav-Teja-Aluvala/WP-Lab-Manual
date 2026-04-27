@@ -1,0 +1,12 @@
+<div id="outputBox" style="padding: 20px; background:#282c34; color:aqua;font-family: monospace;
+border-radius:8px;">
+</div>
+
+<script>
+    function greetUser(name,timeOfDay){
+        return 'Good ${timeOfDay},${name}! The function has been executed successfully.'; 
+    }
+
+    const message = greetUser("Developer","Morning");
+    document.getElementById('outputBox').innerText = message;
+</script>

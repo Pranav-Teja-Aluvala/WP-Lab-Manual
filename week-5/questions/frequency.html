@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Word Frequency Counter</title>
+</head>
+<body>
+    <h2>Word Frequency Counter</h2>
+    
+    <textarea id="text" rows="6" cols="50" placeholder="Enter your text here"></textarea><br><br>
+    
+    <input type="text" id="word" placeholder="Enter word to count">
+    <button onclick="count()">Count</button>
+    
+    <p id="result"></p>
+    
+    <script>
+        function count() {
+            let text = document.getElementById('text').value;
+            let word = document.getElementById('word').value.trim();
+            
+            if (word === "") {
+                document.getElementById('result').innerText = "Please enter a word.";
+                return;
+            }
+
+            let wordsArray = text.toLowerCase().match(/\b\w+\b/g) || [];
+    
+            let count = 0;
+            let target = word.toLowerCase();
+            for (let w of wordsArray) {
+                if (w === target) count++;
+            }
+
+            document.getElementById('result').innerText = `The word "${word}" appears ${count} time(s).`;
+        }
+    </script>
+</body>
+</html>

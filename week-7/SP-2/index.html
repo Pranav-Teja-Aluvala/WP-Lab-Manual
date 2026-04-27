@@ -1,0 +1,74 @@
+<!-- Go to Extensions
+
+Search Live Server
+
+Install
+
+Right-click index.html
+
+Click Open with Live Server-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Modules</title>
+
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            background: #f9f6f6;
+            padding: 50px;
+        }
+
+        .module-box {
+            border: 2px dashed #4ec9b0;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 450px;
+            margin: auto;
+        }
+
+        .highlight {
+            color: #ce9178;
+            font-weight: bold;
+        }
+
+        h2 {
+            color: #4ec9b0;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="module-box">
+        <h2>Module Results</h2>
+        <div id="output"></div>
+    </div>
+
+    <script type="module">
+        import multiply, { add, divide, modulus, PI } from './module.js';
+
+        const val1 = 20;
+        const val2 = 4;
+
+        const sum = add(val1, val2);
+        const product = multiply(val1, val2);
+        const division = divide(val1, val2);
+        const remainder = modulus(val1, val2);
+
+        document.getElementById("output").innerHTML = `
+            <p>Value of PI: <span class="highlight">${PI}</span></p>
+            <p>${val1} + ${val2} = <span class="highlight">${sum}</span></p>
+            <p>${val1} * ${val2} = <span class="highlight">${product}</span></p>
+            <p>${val1} / ${val2} = <span class="highlight">${division}</span></p>
+            <p>${val1} % ${val2} = <span class="highlight">${remainder}</span></p>
+        `;
+    </script>
+
+</body>
+</html>

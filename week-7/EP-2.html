@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functional Programming</title>
+</head>
+
+<body>
+    <h1>Functional Programming using map(), filter(), reduce()</h1>
+    <label>Enter numbers separated by commas:</label>
+    <br>
+
+    <input type="text" id="numbers" placeholder="Example: 3,7,10,15,20">
+    <br><br>
+
+    <button onclick="processArray()">Process</button>
+    <p id="output"></p>
+
+    <script>
+        function processArray() {
+            let input = document.getElementById("numbers").value;
+            let numbers = input.split(",").map(Number);
+
+            let squaredNumbers = numbers.map(function (n) {
+                return n * n;
+            });
+
+            let evenNumbers = numbers.filter(function (n) {
+                return n % 2 === 0;
+            });
+
+            let totalSum = numbers.reduce(function (sum, n) {
+                return sum + n;
+            }, 0);
+
+            document.getElementById("output").innerHTML =
+                "Original Array: " + numbers + "<br>" +
+                "Squared Values: " + squaredNumbers + "<br>" +
+                "Even Numbers: " + evenNumbers + "<br>" +
+                "Sum of Elements: " + totalSum;
+        }
+    </script>
+</body>
+</html>

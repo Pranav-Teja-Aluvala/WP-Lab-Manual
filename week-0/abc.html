@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blast Button!</title>
+<style>
+  body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    overflow: hidden; /* hide particles overflow */
+  }
+
+  h2 {
+    margin-top: 50px;
+  }
+
+  .container {
+    position: relative;
+    height: 100px;
+    margin-top: 50px;
+  }
+
+  .slide-button {
+    position: absolute;
+    top: 0;
+    padding: 12px 25px;
+    background-color: #FF0000;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    animation: slide 3s forwards;
+    z-index: 10;
+  }
+
+  @keyframes slide {
+    0% { left: 100%; }
+    90% { left: 0; }        /* reach left side */
+    100% { left: 0; opacity: 0; } /* button disappears */
+  }
+
+  /* Shake animation for body */
+  @keyframes shake {
+    0% { transform: translateX(0); }
+    20% { transform: translateX(-10px); }
+    40% { transform: translateX(10px); }
+    60% { transform: translateX(-10px); }
+    80% { transform: translateX(10px); }
+    100% { transform: translateX(0); }
+  }
+
+  /* Particle style */
+  .particle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: coral;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 5;
+  }
+</style>
+</head>
+<body>
+
+<h2>Click the button or watch it blast!</h2>
+
+<div class="container">
+  <button id="crazyButton" class="slide-button" onclick="window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ', '_blank')">
+    Youtube Tutorial
+  </button>
+</div>
+
+<script>
+const button = document.getElementById('crazyButton');
+const container = document.querySelector('.container');
+
+function createParticles(x, y) {
+  for (let i = 0; i < 3000; i++) { // 30 particles
+    const particle = document.createElement('div');
+    particle.classList.add('particle');
+    container.appendChild(particle);
+
+    // random direction and speed
+    const angle = Math.random() * 2 * Math.PI;
+    const speed = Math.random() * 150 + 50; // px distance
+    const dx = Math.cos(angle) * speed;
+    const dy = Math.sin(angle) * speed;
+
+    particle.style.left = x + 'px';
+    particle.style.top = y + 'px';
+
+    // animate particle
+    particle.animate([
+      { transform: `translate(0px, 0px)`, opacity: 1 },
+      { transform: `translate(${dx}px, ${dy}px)`, opacity: 0 }
+    ], {
+      duration: 1000 + Math.random() * 500, // 1-1.5s
+      easing: 'ease-out',
+      fill: 'forwards'
+    });
+
+    // remove particle after animation
+    setTimeout(() => particle.remove(), 1500);
+  }
+}
+
+button.addEventListener('animationend', () => {
+  // shake the body
+  document.body.style.animation = 'shake 0.5s';
+  setTimeout(() => { document.body.style.animation = ''; }, 500);
+
+  // create particles at button position
+  const rect = button.getBoundingClientRect();
+  const x = rect.left + rect.width/2 - container.getBoundingClientRect().left;
+  const y = rect.top + rect.height/2 - container.getBoundingClientRect().top;
+  createParticles(x, y);
+});
+</script>
+
+</body>
+</html>

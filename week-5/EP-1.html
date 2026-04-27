@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Function Comparison</title>
+</head>
+<body>
+
+<h2>Function Declaration vs Function Expression</h2>
+
+<form>
+    Enter your name:
+    <input type="text" id="name">
+    <br><br>
+    <input type="button" value="Submit" onclick="runFunctions()">
+</form>
+
+<p id="output"></p>
+
+<script>
+    // Declaration
+    function declarationFunction(name) {
+        return "Function Declaration Output: Hello " + name;
+    }
+
+    // Expression
+    var expressionFunction = function(name) {
+        return "Function Expression Output: Hello " + name;
+    };
+
+    function runFunctions() {
+        var userName = document.getElementById("name").value;
+
+        if (userName === "") {
+            userName = "User";
+        }
+
+        document.getElementById("output").innerHTML =
+            declarationFunction(userName) + "<br>" +
+            expressionFunction(userName);
+    }
+</script>
+
+</body>
+</html>

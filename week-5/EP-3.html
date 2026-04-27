@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Arrow Functions</title>
+</head>
+<body>
+
+<h2>Arrow Functions</h2>
+
+<form>
+    Enter a number:
+    <input type="number" id="num"><br><br>
+    <input type="button" value="Submit" onclick="runArrow()">
+</form>
+
+<p id="result" style="font-weight: bold; color: blue;"></p>
+
+<script>
+    const square = (n) => n * n;
+
+    const welcome = () => "Welcome to JavaScript Arrow Function";
+
+    function runArrow() {
+        var number = document.getElementById("num").value;
+
+        document.getElementById("result").innerHTML =
+            "Square is " + square(number) + "<br>" +
+            welcome();
+    }
+</script>
+
+</body>
+</html>

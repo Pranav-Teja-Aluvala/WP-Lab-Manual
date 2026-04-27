@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selectors</title>
+    <style>
+        /*  Element Selector */
+        h2 {
+            color: chocolate;
+        }
+
+        /*  Class Selector */
+        .highlight {
+            background-color: lightyellow;
+            padding: 5px;
+        }
+
+        /*  ID Selector */
+        #unique {
+            color: red;
+            font-weight: bold;
+        }
+
+        /* Descendant Selector */
+        div p {
+            font-style: italic;
+            color: green;
+        }
+
+        /*  Pseudo-class Selector */
+        a:hover {
+            color: orange;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body style="background-color: #f0f0f0; font-family: Arial, sans-serif; padding: 20px;">
+
+    <h2>CSS Selectors Example</h2>
+
+    <p>This paragraph is styled using an <strong>element selector</strong>.</p>
+
+
+    <p class="highlight">This paragraph uses a <strong>class selector</strong>.</p>
+
+    <p id="unique">This paragraph uses an <strong>ID selector</strong>.</p>
+
+
+    <div>
+        <p>This paragraph is inside a div, so it uses a <strong>descendant selector</strong>.</p>
+    </div>
+
+    <p>Hover over this <a href="#">link</a> to see a <strong>pseudo-class selector</strong> effect.</p>
+
+</body>
+</html>

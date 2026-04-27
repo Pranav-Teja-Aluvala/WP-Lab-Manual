@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #eef2f3;
+      padding: 40px;
+    }
+
+    .device-card {
+      max-width: 350px;
+      margin: auto;
+      padding: 20px;
+      background: white;
+      border-radius: 15px;
+      border-left: 8px solid #09d6cc; 
+      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+    }
+
+    .status-badge {
+      display: inline-block;
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: bold;
+    }
+
+    h2 {
+      margin: 10px 0;
+      color: #333;
+    }
+
+    .info {
+      margin-top: 15px;
+      color: #444;
+    }
+
+    .code-preview {
+      margin-top: 15px;
+      background: #2d3436;
+      color: #fab1a0;
+      font-family: monospace;
+      font-size: 0.85rem;
+      padding: 10px;
+      border-radius: 5px;
+    }
+
+    .status-online {
+      background: #d1fae5;
+      color: #065f46;
+    }   
+
+    .status-offline {
+      background: #fee2e2;
+      color: #991b1b;
+    }
+
+    .card-offline{
+       border-left: 8px solid red;
+    }
+
+    .card-online{
+       border-left: 8px solid #4facfe;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="device-card">
+    <span class="status-badge" id="statusBadge"></span>
+    <h2 id="deviceName"></h2>
+    <div class="info" id="deviceDetails"></div>
+    <div class="code-preview">
+      const device = { name, type, status };
+    </div>
+  </div>
+
+  <script>
+    const name = "Living Room Hub";
+    const type = "Smart Speaker";
+    const status = "offline";
+
+    const smartDevice = {
+      name,
+      type,
+      status,
+      summarize() {
+        return `${this.name} is a ${this.type}.`;
+      }
+    }; 
+    const statusBadge = document.getElementById("statusBadge");
+    const deviceCard = document.querySelector(".device-card");
+
+    document.getElementById("deviceName").innerText = smartDevice.name;
+    document.getElementById("deviceDetails").innerText = smartDevice.summarize();
+    statusBadge.innerText = smartDevice.status;
+
+    if (smartDevice.status.toLowerCase() === "offline") {
+      statusBadge.classList.add("status-offline");
+      deviceCard.classList.add("card-offline");
+    } else {
+      statusBadge.classList.add("status-online");
+      deviceCard.classList.add("card-online");
+    }
+  </script>
+
+</body>
+</html>

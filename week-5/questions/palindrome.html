@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Palindrome Checker</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f4f4f4;
+    }
+
+    /* Container slide-in animation */
+    .container {
+      text-align: center;
+      padding: 25px 30px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      animation: slideIn 0.8s ease forwards; /* Animation added */
+      opacity: 0; /* start hidden */
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translateY(-50px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-top: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      outline: none;
+      font-size: 14px;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 6px;
+      background-color: #667eea;
+      color: white;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      opacity: 0.9;
+    }
+
+    /* Result fade-in animation */
+    #result {
+      margin-top: 15px;
+      font-size: 16px;
+      color: chocolate;
+      font-style: oblique;
+      opacity: 0; /* start hidden */
+      transition: opacity 0.6s; /* smooth fade-in */
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Enter the string here:</h2>
+    <input id="text" type="text" placeholder="Enter string or number">
+    <button onclick="isPalindrome()">Submit</button>
+    <div id="result"></div>
+  </div>
+
+  <script>
+    function isPalindrome() {
+      let str = document.getElementById("text").value.trim();
+      if (str === "") {
+        alert("Enter a text!");
+        return;
+      }
+
+      let rev = str.split('').reverse().join('');
+      let resultText = (str === rev) 
+        ? "The string is a palindrome." 
+        : "The string is not a palindrome.";
+
+      let result = document.getElementById("result");
+      result.innerHTML = resultText;
+
+      result.style.opacity = 1;
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+NODE.JS EXECUTION STEPS 
+
+1.  Install Node.js from https://nodejs.org
+2.  Open VS Code.
+3.  Create a new folder for your program.
+4.  Inside the folder, create a .js file (example: app.js).
+5.  Write your JavaScript code and save the file.
+6.  Open Terminal in VS Code (Terminal → New Terminal).
+7.  Make sure you are inside your project folder.
+8.  Run the program using: node filename.js Example: node app.js
+9.  Output will appear directly in the VS Code terminal.
+10. If there is an error, read the error message shown in terminal.
+11. Edit the code → Save → Run again using node filename.js.
+
+IMPORTANT: - No browser needed for Node.js programs. - Always save the
+file before running. - File name is case-sensitive.

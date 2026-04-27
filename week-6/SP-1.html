@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f7f6;
+      padding: 40px;
+    }
+
+    .card {
+      background: white;
+      max-width: 400px;
+      margin: auto;
+      border-radius: 10px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      border: 1px solid #e1e4e8;
+    }
+
+    .card-header {
+      background: #6e8efb;
+      color: white;
+      padding: 15px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .card-body {
+      padding: 20px;
+      line-height: 1.8;
+    }
+
+    .label {
+      font-weight: bold;
+      color: #6e8efb;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+    }
+
+    .value {
+      color: #333;
+      margin-bottom: 10px;
+      border-bottom: 1px solid #f0f0f0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="card">
+    <div class="card-header">User Profile (Destructured)</div>
+    <div class="card-body" id="output"></div>
+  </div>
+
+  <script>
+    const user = {
+      fullName: "Aluvala Pranav Teja",
+      role: "Intern",
+      loc: "India, Telangana",
+      experience: "6 Months",
+      bio: "I’m a B.Tech CSE student (2nd year, 4th semester) who enjoys building websites and web apps. I work with HTML, CSS, JavaScript, and Python using the Flask framework,  and I have basic experience with Java and C. Curious, motivated, and always improving my skills."
+    };
+
+    const { fullName, role, loc, bio, experience} = user;
+
+    const outputDiv = document.getElementById("output");
+    outputDiv.innerHTML = `
+      <div class="label">Name:</div>
+      <div class="value">${fullName}</div>
+
+      <div class="label">Role:</div>
+      <div class="value">${role}</div>
+
+      <div class="label">Location:</div>
+      <div class="value">${loc}</div>
+
+      <div class="label">Bio:</div>
+      <div class="value">${bio}</div>
+
+      <div class="label">Current Experience:</div>
+      <div class="value">${experience}</div>
+    `;
+  </script>
+</body>
+</html> 

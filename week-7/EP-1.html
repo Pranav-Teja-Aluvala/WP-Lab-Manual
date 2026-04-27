@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Higher Order Functions</title>
+</head>
+
+<body>
+    <h1>Higher Order Functions (HOF)</h1>
+
+    <label>Enter First Number:</label>
+    <input type="number" id="num1">
+    <br><br>
+
+    <label>Enter Second Number:</label>
+    <input type="number" id="num2">
+    <br><br>
+
+    <button onclick="calculateResult()">Calculate</button>
+
+    <p id="result"></p>
+
+    <script>
+
+        function calculate(a, b, operation) {
+            return operation(a, b);
+        }
+
+        function add(x, y) {
+            return x + y;
+        }
+
+        function multiply(x, y) {
+            return x * y;
+        }
+
+        function calculateResult() {
+
+            let a = Number(document.getElementById("num1").value);
+            let b = Number(document.getElementById("num2").value);
+
+            const addition = calculate(a, b, add);
+            const multiplication = calculate(a, b, multiply);
+
+            document.getElementById("result").innerHTML =
+                "Addition: " + addition + "<br>" +
+                "Multiplication: " + multiplication;
+        }
+
+    </script>
+</body>
+</html>

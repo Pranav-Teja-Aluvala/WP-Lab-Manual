@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Pangram</title>
+</head>
+<body>
+
+    <h2>Enter your text here</h2>
+    <input id="text" type="text" placeholder="Enter here">
+    <button onclick="check()">Submit</button>
+    <div id="result"></div>
+
+    <script>
+        function check() {
+            let str = document.getElementById("text").value.trim();
+            isPangram(str);
+        }
+
+        function isPangram(str) { 
+            str = str.toLowerCase(); 
+            let letters = new Set();
+
+            for (let i = 0; i < str.length; i++) {
+                let ch = str[i];
+                if (ch >= 'a' && ch <= 'z') { 
+                    letters.add(ch);
+                }
+            }
+
+            let res = (letters.size === 26) 
+                ? "It IS a pangram" 
+                : "It IS NOT a pangram";
+
+            document.getElementById("result").innerHTML = res;
+        }  
+    </script>
+
+</body>
+</html>

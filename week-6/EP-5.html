@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chain promises</title>
+</head>
+<body>
+    <script>
+
+function validateUser() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      console.log("Validating user...");
+      resolve({ id: 1, name: "Pranav" });
+    }, 1000);
+  });
+}
+
+function chargePayment(user) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      console.log("Charging payment for:", user.name);
+      resolve({ paymentId: "UserId", user });
+    }, 1000);
+  });
+}
+
+function shipOrder(order) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      console.log("shipping order...");
+      resolve({
+        trackingNumber: "01234",
+        ...order
+      });
+    }, 1000);
+  });
+}
+
+function processOrder() {
+  return validateUser()
+    .then(chargePayment)
+    .then(shipOrder)
+    .then(finalResult => {
+      console.log("Order complete!");
+      return finalResult;
+    });
+}
+
+processOrder()
+  .then(result => {
+    console.log("Final Result:", result);
+  })
+  .catch(error => {
+    console.error("Error occurred:", error);
+  });
+
+    </script>
+</body>
+</html>

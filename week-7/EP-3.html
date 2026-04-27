@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function Composition</title>
+</head>
+
+<body>
+    <h1>Function Composition</h1>
+
+    <label>Enter a number:</label>
+    <input type="number" id="num">
+    <br><br>
+
+    <button onclick="calculate()">Calculate</button>
+    <p id="result"></p>
+
+    <script>
+        function compose(f, g) {
+            return function (x) {
+                return f(g(x));
+            };
+        }
+
+        function double(n) {
+            return n * 2;
+        }
+
+        function addFive(n) {
+            return n + 5;
+        }
+
+        function calculate() {
+            let value = Number(document.getElementById("num").value);
+            const combinedFunction = compose(double, addFive);
+            const answer = combinedFunction(value);
+
+            document.getElementById("result").innerText =
+                "Result: " + answer;
+        }
+    </script>
+</body>
+</html>

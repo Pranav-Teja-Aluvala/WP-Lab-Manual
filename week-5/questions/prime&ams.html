@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prime & Armstrong Checker</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      background: #f0f8ff;
+    }
+
+    .container {
+      background: #fff;
+      padding: 25px 30px;
+      border-radius: 12px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      width: 300px;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      margin: 10px 0;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+
+    button {
+      margin: 5px;
+      padding: 8px 16px;
+      border-radius: 6px;
+      border: none;
+      background-color: #667eea;
+      color: white;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    button:hover {
+      opacity: 0.9;
+    }
+
+    #result {
+      margin-top: 15px;
+      font-size: 16px;
+      color: chocolate;
+      font-style: oblique;
+      min-height: 24px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Enter a Number:</h2>
+    <input type="number" id="num" placeholder="Enter number">
+    <div>
+      <button onclick="checkPrime()">Check Prime</button>
+      <button onclick="checkArmstrong()">Check Armstrong</button>
+    </div>
+    <div id="result"></div>
+  </div>
+
+  <script>
+
+    function checkPrime() {
+      let n = parseInt(document.getElementById("num").value);
+      if (isNaN(n) || n < 1) {
+        alert("Enter a valid positive number!");
+        return;
+      }
+      if (n === 1) {
+        document.getElementById("result").innerHTML = "1 is neither prime nor composite.";
+        return;
+      }
+
+      let isPrime = true;
+      for (let i = 2; i <= Math.sqrt(n); i++) {
+        if (n % i === 0) {
+          isPrime = false;
+          break;
+        }
+      }
+
+      document.getElementById("result").innerHTML = isPrime 
+        ? n + " is a Prime number." 
+        : n + " is Not a Prime number.";
+    }
+
+    function checkArmstrong() {
+      let n = parseInt(document.getElementById("num").value);
+      if (isNaN(n) || n < 0) {
+        alert("Enter a valid positive number!");
+        return;
+      }
+
+      let sum = 0;
+      let temp = n;
+      let digits = n.toString().length;
+
+      while (temp > 0) {
+        let digit = temp % 10;
+        sum += Math.pow(digit, digits);
+        temp = Math.floor(temp / 10);
+      }
+
+      document.getElementById("result").innerHTML = (sum === n) 
+        ? n + " is an Armstrong number." 
+        : n + " is Not an Armstrong number.";
+    }
+  </script>
+
+</body>
+</html>

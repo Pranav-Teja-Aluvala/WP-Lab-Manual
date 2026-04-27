@@ -1,0 +1,5 @@
+WAP to find the reverse of a given number.
+WAP to check a given string is palindrome or not 
+WAP to check if a number is prime and amstrong (2 buttons)
+to count the frequency of a given word in the main text
+to check if a given string is pangram or not

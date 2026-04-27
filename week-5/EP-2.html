@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Default Parameters</title>
+</head>
+<body>
+
+<h2>Default Parameters</h2>
+
+<form>
+    Enter Name:
+    <input type="text" id="name"><br><br>
+    Enter Age:
+    <input type="number" id="age"><br><br>
+    <input type="button" value="Submit" onclick="showResult()">
+</form>
+
+<p id="output" style="font-weight: bold; color: chocolate; animation: infinite;"></p>
+
+<script>
+    function greetUser(name = "User", age = 18) {
+        return "Hello " + name + ", your age is " + age;
+    }
+
+    function showResult() {
+        var name = document.getElementById("name").value;
+        var age = document.getElementById("age").value;
+
+        if (name === "") name = undefined;
+        if (age === "") age = undefined; 
+
+        document.getElementById("output").innerText =
+            greetUser(name, age);
+    }
+</script>
+
+</body>
+</html>
